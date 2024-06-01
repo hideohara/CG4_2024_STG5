@@ -604,3 +604,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2078361626}
   animator: {fileID: 2078361623}
+  bullet: {fileID: 5222635100485391875, guid: 419284ed19cbd334298290a56a2bc34b, type: 3}
