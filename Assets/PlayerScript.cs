@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Screen.SetResolution(1920, 1080, false);
         // Script‚ðŽæ“¾‚·‚é
         gameManagerScript = gameManager.GetComponent<GameManagerScript>();
     }
@@ -22,6 +21,12 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameManagerScript.IsGameOver() == true)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            return;
+        }
+
         float moveSpeed = 2.0f;
         float stageMax = 4.0f;
         if (Input.GetKey(KeyCode.RightArrow))
@@ -50,6 +55,12 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (gameManagerScript.IsGameOver() == true)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            return;
+        }
+
         if (bulletTimer == 0)
         {
             // ’e”­ŽË
