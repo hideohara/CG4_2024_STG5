@@ -8,10 +8,13 @@ public class BulletScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        Destroy(gameObject, 3);
+    {    
         float moveSpeed = 5;
         rb.velocity = new Vector3(0, 0, moveSpeed);
+
+        Destroy(gameObject, 5);
+
+
     }
 
     // Update is called once per frame
@@ -24,8 +27,17 @@ public class BulletScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Destroy(this.gameObject);
+            // ゲームマネージャーのスクリプトを獲得
+            GameObject gameManager; // GameObjectそのものが入る変数
+            GameManagerScript gameManagerScript; // Scriptが入る変数
+            gameManager = GameObject.Find("GameManager");
+            gameManagerScript = gameManager.GetComponent<GameManagerScript>();
+
+            // ゲームマネージャースクリプトの衝突判定を呼び出す
+            gameManagerScript.Hit(transform.position);
+
             Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 

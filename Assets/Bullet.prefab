@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -8285285340946260020}
+  bombParticle: {fileID: 5501543345142575845, guid: 9111a63a903304843a22b6c2a4feed13, type: 3}
